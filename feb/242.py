@@ -144,25 +144,25 @@
 
 
 #calculating the Lcm of 2 numbers
-def gcd(num1, num2):
-    if num1 > num2:
-        num1, num2 = num2, num1
+# def gcd(num1, num2):
+#     if num1 > num2:
+#         num1, num2 = num2, num1
 
-    i = 1
-    hcf = 1
-    while i <= num1:
-        if num1 % i == 0 and num2 % i == 0:
-            hcf = i
-        i += 1
-    return hcf  
+#     i = 1
+#     hcf = 1
+#     while i <= num1:
+#         if num1 % i == 0 and num2 % i == 0:
+#             hcf = i
+#         i += 1
+#     return hcf  
 
-def lcm(num1, num2):
-    return (num1 * num2) // gcd(num1, num2) 
+# def lcm(num1, num2):
+#     return (num1 * num2) // gcd(num1, num2) 
     
-num1 = int(input("Enter first number: "))
-num2 = int(input("Enter second number: "))
-lcm_value = lcm(num1, num2)
-print(f"The LCM of {num1} and {num2} is: {lcm_value}")
+# num1 = int(input("Enter first number: "))
+# num2 = int(input("Enter second number: "))
+# lcm_value = lcm(num1, num2)
+# print(f"The LCM of {num1} and {num2} is: {lcm_value}")
 
 
 
@@ -206,3 +206,13 @@ print(f"The LCM of {num1} and {num2} is: {lcm_value}")
 # pos_num=int(input("enter a num: "))
 
 # fibinocci(pos_num)
+
+
+
+n=[10,20,30]
+def add(n):
+    for i in range(n):
+        i=i+1
+    return i
+k=list(map(add,n))
+print(k)

@@ -143,9 +143,9 @@
 
 # flag= angram(s1, s2)
 # if flag:
-#     print(s1 , " ", s2, " :are ANGRAM")   
+#     print(s1 , " ", s2, " :are ANGRAM ")   
 # else:
-#     print(s1, " ", s2 , " : are not ANGRAM")    
+#     print(s1, " ", s2 , " : are not ANGRAM ")    
 
 
 
@@ -215,7 +215,7 @@
 
 
 
-# s= input("Enter a string: ")
+
 # def filtration(s):
 #     new_str=""
 #     for i in range(len(s)):
@@ -237,19 +237,27 @@
 
 # def allPalindromes(s):
 #     s= filtration(s)
-#     nw, ns= "", ""
+#     nw=""
+#     max_word, max_len="", -2147383648
 #     s= s+ " "
 #     for i in range(len(s)):
 #         if s[i]!=" ":
 #             nw+= s[i]
 #         elif nw!="":
 #             if palindrome(nw)== True:
-#                 if ns!="":
-#                     ns+= " " + nw
-#                 else:
-#                     ns= nw
-#             nw= ""
-#     return ns
+#                 if max_len < len(nw):
+#                     max_word = nw
+#                     max_len= len(nw)
+#             nw=""
+
+#     return max_word, max_len
+# s= input("Enter a string: ")
+# print(allPalindromes(s))
+
+
+
+
+
 # print(allPalindromes(s))
 # def longest_palindrome(ns):
 #     ns= ns+" "
@@ -343,11 +351,54 @@
 # palindromic words available in a given sentence
 	
 # 	I/P:
-# 		madam malayalam wow are adjective words 
-# 		malayalam kannada madam malayalam
+# 		madam malayalam wow are adjective words malayalam kannada madam malayalam
 		
 # 	O/P:
 # 		3
+
+
+def filteration(s):
+    new_str=""
+    for i in range(len(s)):
+        if "A"<= s[i]<= "Z":
+            new_str+= chr(ord(s[i])+32)   #converting into smaller or lower case
+        elif ("a"<= s[i]<= "z")or s[i]==" ":
+            new_str+= s[i]
+    return new_str
+
+def continue_palindromic_words(s):
+    nw_str= filteration(s)
+    count=0
+    max_count=0
+    nw=""
+    for i in range(len(nw_str)):
+        if nw_str[i]!=" ":
+            nw+= nw_str[i]
+        elif count>=0:
+            if palindrome(nw):
+                count+=1
+                if count> max_count:
+                    max_count= count
+            
+            else:
+                count=0
+                
+            nw=""
+    return max_count
+
+def palindrome(nw):
+    i, j= 0,len(nw)-1
+    while i<= j:
+        if nw[i]!= nw[j]:
+            return False
+        i+=1
+        j-=1
+    return True
+       
+
+s= input("Enter a string: ")
+print(continue_palindromic_words(s))
+
 
 
 
@@ -374,3 +425,39 @@
 
 
 #converting to dictonary
+# s1= input("Enter a string: ")
+# s2= input("Enter a string: ")
+# def filtration(s):
+#     new_str=""
+#     for i in range(len(s)):
+#         if "A"<= s[i]<= "Z":
+#             new_str+= chr(ord(s[i])+32)   #converting into smaller or lower case
+#         elif ("a"<= s[i]<= "z"):
+#             new_str+= s[i]
+#     return new_str
+
+# def dictconv(l):
+#     d={}
+#     for i in l:
+#         if i in d:
+#             d[i]+=1
+#         else:
+#             d[i]=1
+#     return d
+
+
+# def occurances(s1,s2):
+#     l1= filtration(s1)
+#     l2= filtration(s2)
+#     d1=dictconv(l1)
+#     d2=dictconv(l2)
+#     return d1==d2
+
+
+
+# flag=(occurances(s1,s2))
+# if flag:
+#     print("Anagram")
+
+# else:
+#     print("Not an anagram")
